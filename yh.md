@@ -50,8 +50,8 @@ Data model for organizing and managing vocational education operations.
 |                 |                      |             | ConsultantCompany, which is associated          |
 |                 |                      |             | with one or many Consultants                    |
 | --------------- | -------------------- | ----------- | ----------------------------------------------  |
-| Employee        | Location             | many-to-one | An Employee works at one or many Locations,     |
-|                 |                      |             | A Location is linked to one one Employee        |
+| Employee        | Location             | many-to-one | An Employee works at one Location,              |
+|                 |                      |             | A Location has one or many Employees            |
 |                 |                      |             |                                                 |
 | --------------- | -------------------- | ----------- | ----------------------------------------------  |
 | Location        | VocationalUniversity | many-to-one | A Location belongs to one VocationalUniversity, |
