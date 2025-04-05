@@ -4,8 +4,6 @@ Data model for organizing and managing vocational education operations.
 
 #### Relationship Statements
 
-| --------------- | -------------------- | ----------- | ---------------------------------------------- |
-
 | Entity          | Entity               | Cardinality | Relationship                                    |
 | --------------- | -------------------- | ----------- | ----------------------------------------------- |
 | Student         | Enrollment           | one-to-many | A Student has one or many Enrollments,          |
@@ -82,10 +80,6 @@ Data model for organizing and managing vocational education operations.
 | --------------- | -------------------- | ----------- | ----------------------------------------------  |
 | Class           | Location             | many-to-one | Each Class is offered at one Location,          |
 |                 |                      |             | A Location offers one or many Classes           |
-|                 |                      |             |                                                 |
-| --------------- | -------------------- | ----------- | ----------------------------------------------  |
-|                 |                      |             |                                                 |
-|                 |                      |             |                                                 |
 |                 |                      |             |                                                 |
 | --------------- | -------------------- | ----------- | ----------------------------------------------  |
 
