@@ -84,3 +84,5 @@ Data model for organizing and managing vocational education operations.
 | --------------- | -------------------- | ----------- | ---------------------------------------------- |
 
 #### 3NF Compliance Database Model
+
+The database model follows normalization principles from 1NF to 3NF. Each table has a primary key, no repeating groups, and columns that store one type of data, ensuring uniform and consistent information. All non-prime attributes are fully functionally dependent on the primary key, which ensures there are no hidden dependencies. This design avoids redundancy, prevents anomalies, maintains high data integrity, and makes the database correct, efficient, and easy to manage.
