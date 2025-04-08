@@ -39,7 +39,7 @@ INSERT INTO
     personalInfo (
         personal_identification_number,
         emergency_contact_info,
-        emergency_contatact_number
+        emergency_contact_number
     )
 VALUES
     ('19900101-1234', 'Anna Svensson', '0701234567'),
@@ -270,3 +270,33 @@ VALUES
     (2, 2),
     (3, 3),
     (4, 2);
+
+INSERT INTO
+    consultantCompany (
+        organisation_number,
+        organisation_name,
+        organisation_type,
+        f_skatt,
+        address_id
+    )
+VALUES
+    (
+        '556677-8899',
+        'IT Konsult AB',
+        'IT Consulting',
+        true,
+        6
+    ),
+    (
+        '998877-6655',
+        'Data Experts AB',
+        'Software Consulting',
+        true,
+        7
+    );
+
+INSERT INTO
+    consultant (rate, consultant_company_id, employee_id)
+VALUES
+    (600, 1, 1),
+    (550, 2, 3);

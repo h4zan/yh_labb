@@ -20,7 +20,7 @@ Table PersonalInfo {
   id SERIAL [primary key]
   personal_identification_number VARCHAR(50) [not null]
   emergency_contact_info VARCHAR(50) [not null]
-  emergency_contatact_number VARCHAR(50) [not null]
+  emergency_contact_number VARCHAR(50) [not null]
 }
 
 Table VocationalUniversity {

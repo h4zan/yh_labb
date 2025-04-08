@@ -58,3 +58,18 @@ JOIN
 ORDER BY 
   program_director_name, 
   c.class_label;
+
+SELECT 
+    i.id AS instructor_id,
+    e.first_name,
+    e.last_name,
+    c.id AS consultant_id,
+    cc.organisation_name
+FROM 
+    yrkesco_data.instructor i
+JOIN 
+    yrkesco_data.employee e ON i.employee_id = e.id
+JOIN 
+    yrkesco_data.consultant c ON c.employee_id = e.id
+JOIN 
+    yrkesco_data.consultantCompany cc ON c.consultant_company_id = cc.id;

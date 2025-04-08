@@ -17,7 +17,7 @@ CREATE TABLE
         id SERIAL PRIMARY KEY,
         personal_identification_number VARCHAR(50) NOT NULL,
         emergency_contact_info VARCHAR(50) NOT NULL,
-        emergency_contatact_number VARCHAR(50) NOT NULL
+        emergency_contact_number VARCHAR(50) NOT NULL
     );
 
 CREATE TABLE
