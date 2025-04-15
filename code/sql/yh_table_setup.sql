@@ -4,7 +4,7 @@ SET
     search_path TO yrkesco_data;
 
 CREATE TABLE
-    Address (
+    IF NOT EXISTS Address (
         id SERIAL PRIMARY KEY,
         address VARCHAR(255) NOT NULL,
         zip_code VARCHAR(50) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    PersonalInfo (
+    IF NOT EXISTS PersonalInfo (
         id SERIAL PRIMARY KEY,
         personal_identification_number VARCHAR(50) NOT NULL,
         emergency_contact_info VARCHAR(50) NOT NULL,
@@ -21,21 +21,21 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    VocationalUniversity (
+    IF NOT EXISTS VocationalUniversity (
         id SERIAL PRIMARY KEY,
         title VARCHAR(100) NOT NULL,
         establishment_date DATE
     );
 
 CREATE TABLE
-    VuLocation (
+    IF NOT EXISTS VuLocation (
         id SERIAL PRIMARY KEY,
         vocational_university_id INTEGER NOT NULL REFERENCES VocationalUniversity (id),
         address_id INTEGER NOT NULL REFERENCES Address (id)
     );
 
 CREATE TABLE
-    Employee (
+    IF NOT EXISTS Employee (
         id SERIAL PRIMARY KEY,
         first_name VARCHAR(50) NOT NULL,
         last_name VARCHAR(50) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    ConsultantCompany (
+    IF NOT EXISTS ConsultantCompany (
         id SERIAL PRIMARY KEY,
         organisation_number VARCHAR(100) NOT NULL,
         organisation_name VARCHAR(100) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    Consultant (
+    IF NOT EXISTS Consultant (
         id SERIAL PRIMARY KEY,
         rate INTEGER NOT NULL,
         consultant_company_id INTEGER NOT NULL REFERENCES ConsultantCompany (id),
@@ -67,26 +67,26 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    Instructor (
+    IF NOT EXISTS Instructor (
         id SERIAL PRIMARY KEY,
         employee_id INTEGER UNIQUE NOT NULL REFERENCES Employee (id)
     );
 
 CREATE TABLE
-    ProgramDirector (
+    IF NOT EXISTS ProgramDirector (
         id SERIAL PRIMARY KEY,
         employee_id INTEGER UNIQUE NOT NULL REFERENCES Employee (id)
     );
 
 CREATE TABLE
-    Subject (
+    IF NOT EXISTS Subject (
         id SERIAL PRIMARY KEY,
         subject_name VARCHAR(100) NOT NULL,
         subject_area VARCHAR(100) NOT NULL
     );
 
 CREATE TABLE
-    Course (
+    IF NOT EXISTS Course (
         id SERIAL PRIMARY KEY,
         course_name VARCHAR(100) NOT NULL,
         course_code VARCHAR(50) NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    Program (
+    IF NOT EXISTS Program (
         id SERIAL PRIMARY KEY,
         program_name VARCHAR(100) NOT NULL,
         program_year INTEGER NOT NULL,
@@ -106,14 +106,14 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    ProgramCourse (
+    IF NOT EXISTS ProgramCourse (
         course_id INTEGER NOT NULL REFERENCES Course (id),
         program_id INTEGER NOT NULL REFERENCES Program (id),
         PRIMARY KEY (course_id, program_id)
     );
 
 CREATE TABLE
-    Student (
+    IF NOT EXISTS Student (
         id SERIAL PRIMARY KEY,
         first_name VARCHAR(50) NOT NULL,
         last_name VARCHAR(50) NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    Class (
+    IF NOT EXISTS Class (
         id SERIAL PRIMARY KEY,
         class_label VARCHAR(100) NOT NULL,
         class_grade VARCHAR(100) NOT NULL,
@@ -134,14 +134,14 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    ClassInstructor (
+    IF NOT EXISTS ClassInstructor (
         class_id INTEGER NOT NULL REFERENCES Class (id),
         instructor_id INTEGER NOT NULL REFERENCES Instructor (id),
         PRIMARY KEY (class_id, instructor_id)
     );
 
 CREATE TABLE
-    Enrollment (
+    IF NOT EXISTS Enrollment (
         id SERIAL PRIMARY KEY,
         status VARCHAR(50) NOT NULL,
         student_id INTEGER NOT NULL REFERENCES Student (id),
